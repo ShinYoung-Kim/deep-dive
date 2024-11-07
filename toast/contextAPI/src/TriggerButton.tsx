@@ -1,4 +1,4 @@
-import { useToast } from "./useToast";
+import { useToast } from "./toast/useToast";
 
 const TriggerButton = () => {
 	const { addToast } = useToast();

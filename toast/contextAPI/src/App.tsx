@@ -1,4 +1,4 @@
-import TriggerButton from "./toast/TriggerButton";
+import TriggerButton from "./TriggerButton";
 
 function App() {
 	return (
