@@ -1,11 +1,8 @@
 import Toast from "./Toast";
-import { ToastList } from "./toast.type";
+import { useToast } from "./useToast";
 
-type ToastContainerProps = {
-	toastList: ToastList;
-};
-
-const ToastContainer = ({ toastList }: ToastContainerProps) => {
+const ToastContainer = () => {
+	const { toastList } = useToast();
 	return (
 		<div>
 			{toastList.map((toast) => (
