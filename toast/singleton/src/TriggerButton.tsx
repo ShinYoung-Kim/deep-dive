@@ -1,8 +1,8 @@
-import { addToast } from "./toast/toast.util";
+import { SingleTon } from "./toast/SingleTon";
 
 const TriggerButton = () => {
 	const handleClick = () => {
-		addToast("hello");
+		SingleTon.getInstance().addToast("toast!");
 	};
 
 	return <button onClick={handleClick}>toast!</button>;

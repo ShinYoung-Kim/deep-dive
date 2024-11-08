@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Toast as ToastProps } from "./toast.type";
-import { removeToast } from "./toast.util";
+import { SingleTon } from "./SingleTon";
 
 const Toast = ({ message, id }: ToastProps) => {
 	useEffect(() => {
 		setTimeout(() => {
-			removeToast(id);
+			SingleTon.getInstance().removeToast(id);
 		}, 3000);
 	}, []);
 
