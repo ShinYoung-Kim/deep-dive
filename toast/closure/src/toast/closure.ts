@@ -1,19 +1,22 @@
+import Observer from "./observer";
 import { Message, ToastList } from "./toast.type";
 
-const useToast = (function () {
+const createClosure = () => {
 	let toastList: ToastList = [];
-	const addToast = (message: Message) => {
-		toastList = [...toastList, { id: Date.now(), message }];
-	};
-	const removeToast = (id: number) => {
-		toastList = toastList.filter((toast) => toast.id !== id);
-	};
-
 	return {
-		toastList,
-		addToast,
-		removeToast,
+		addToast: (message: Message) => {
+			toastList = [...toastList, { message, id: Date.now() }];
+			Observer.notifyObservers();
+		},
+		removeToast: (id: number) => {
+			toastList = toastList.filter((toast) => toast.id !== id);
+			Observer.notifyObservers();
+		},
+		get toastList() {
+			return toastList;
+		},
 	};
-})();
+};
 
-export default useToast;
+const closure = createClosure();
+export { closure };

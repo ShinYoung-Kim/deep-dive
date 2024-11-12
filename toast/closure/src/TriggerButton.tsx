@@ -1,7 +1,7 @@
-import toast from "./toast/closure";
+import { closure } from "./toast/closure";
 
 const TriggerButton = () => {
-	const { addToast } = toast;
+	const { addToast } = closure;
 	const handleClick = () => {
 		addToast("hello");
 	};

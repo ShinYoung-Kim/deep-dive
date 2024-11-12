@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Toast as ToastProps } from "./toast.type";
-import toast from "./closure";
+import { closure } from "./closure";
 
 const Toast = ({ message, id }: ToastProps) => {
-	const { removeToast } = toast;
+	const { removeToast } = closure;
 
 	useEffect(() => {
 		setTimeout(() => {
