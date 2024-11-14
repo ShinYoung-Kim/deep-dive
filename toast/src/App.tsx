@@ -22,6 +22,7 @@ function App() {
 					display: "flex",
 					alignItems: "center",
 					gap: "1rem",
+					marginBottom: "1rem",
 				}}
 			>
 				<Link to="/closure">Closure</Link>
