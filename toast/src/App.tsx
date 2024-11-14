@@ -20,7 +20,7 @@ function App() {
 			<section
 				style={{
 					display: "flex",
-					alignItems: "center",
+					justifyContent: "center",
 					gap: "1rem",
 					marginBottom: "1rem",
 				}}
