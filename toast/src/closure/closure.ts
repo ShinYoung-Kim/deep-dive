@@ -12,9 +12,7 @@ const createClosure = () => {
 			toastList = toastList.filter((toast) => toast.id !== id);
 			Observer.notifyObservers();
 		},
-		get toastList() {
-			return toastList;
-		},
+		getToastList: () => toastList,
 	};
 };
 

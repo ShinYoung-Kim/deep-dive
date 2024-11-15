@@ -4,18 +4,18 @@ import { closure } from "./closure";
 import Toast from "../common/Toast";
 
 const ToastContainer = () => {
-	const { toastList, removeToast } = closure;
-	const [toastListState, setToastListState] = useState(toastList);
+	const { getToastList, removeToast } = closure;
+	const [toastListState, setToastListState] = useState(getToastList());
 	useEffect(() => {
 		Observer.addObserver(() => {
-			setToastListState(toastList);
+			setToastListState(getToastList());
 		});
 		return () => {
 			Observer.removeObserver(() => {
-				setToastListState(toastList);
+				setToastListState(getToastList());
 			});
 		};
-	}, [toastList]);
+	}, [getToastList, toastListState]);
 
 	return (
 		<div>
