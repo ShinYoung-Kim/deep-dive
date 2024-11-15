@@ -13,7 +13,7 @@ export const useToast = () => {
 		]);
 	};
 	const removeToast = (id: number) => {
-		setToastList(toastList.filter((toast) => toast.id !== id));
+		setToastList((prev) => prev.filter((toast) => toast.id !== id));
 	};
 
 	return { toastList, addToast, removeToast };
