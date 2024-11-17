@@ -8,6 +8,7 @@ import SingletonPage from "./singleton/Page";
 import RenderPage from "./render/Page";
 import PubSubPage from "./pub-sub/Page";
 import { Link } from "react-router-dom";
+import ModulePage from "./module/Page";
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 			>
 				<Link to="/closure">Closure</Link>
 				<Link to="/context-api">Context API</Link>
+				<Link to="/module">Module</Link>
 				<Link to="/observer">Observer</Link>
 				<Link to="/portal">Portal</Link>
 				<Link to="/pub-sub">Pub-Sub</Link>
@@ -38,6 +40,7 @@ function App() {
 				<Route path="/" element={<ClosurePage />} />
 				<Route path="/closure" element={<ClosurePage />} />
 				<Route path="/context-api" element={<ContextAPIPage />} />
+				<Route path="/module" element={<ModulePage />} />
 				<Route path="/observer" element={<ObserverPage />} />
 				<Route path="/portal" element={<PortalPage />} />
 				<Route path="/pub-sub" element={<PubSubPage />} />
