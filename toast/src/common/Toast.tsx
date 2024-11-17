@@ -6,13 +6,14 @@ type ToastProps = {
 } & ToastType;
 
 const Toast = ({ message, id, removeToast }: ToastProps) => {
+	const count = document.querySelector("span")?.innerText;
 	useEffect(() => {
 		setTimeout(() => {
 			removeToast(id);
 		}, 3000);
 	}, []);
 
-	return <div id={id.toString()}>{message + id}</div>;
+	return <div id={`item-${count}`}>{message + id}</div>;
 };
 
 export default Toast;
