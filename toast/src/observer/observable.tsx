@@ -1,4 +1,4 @@
-import { Message } from "./toast.type";
+import { Message } from "../common/toast.type";
 
 type Observer = (message: Message) => void;
 class Observable {

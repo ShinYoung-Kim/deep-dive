@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Message, ToastList } from "../common/toast.type";
 import { useToast } from "./useToast";
 
-const Portal = forwardRef((props, ref) => {
+const Portal = forwardRef((_, ref) => {
 	const [toastList, setToastList] = useState<ToastList>([]);
 	const { id, loaded } = useToast();
 
