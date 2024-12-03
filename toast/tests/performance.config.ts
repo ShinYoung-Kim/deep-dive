@@ -3,7 +3,7 @@ export const testLists = [
 	"context-api",
 	"module",
 	"observer",
-	"portal",
+	// "portal",
 	"pub-sub",
 	"render",
 	"singleton",

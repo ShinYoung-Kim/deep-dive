@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# Toast 컴포넌트를 생성하는 최적의 방법 연구
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+closure, context-api, module, observer, pub-sub, render, singleton, zustand 방식으로 Toast를 생성하고 성능을 비교했습니다.
 
-Currently, two official plugins are available:
+## How To
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+// 의존성 설치
+pnpm install
 
-## Expanding the ESLint configuration
+// 테스트 실행
+pnpm run test
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+// 페이지 실행
+pnpm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Benchmark
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Performance
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+| 방식            | 1회차   | 2회차   | 3회차   | 4회차   | 5회차   | 6회차   | 7회차   | 8회차   | 9회차   | 10회차  | 평균 시간 (ms) | 전체 시간 (m) |
+| --------------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------------- | ------------- |
+| **closure**     | 24356   | 25986.4 | 20034.9 | 20477.9 | 19956.2 | 20589.6 | 20753.1 | 20673.7 | 19847   | 20553.1 | 21322.79       | 6.5           |
+| **module**      | 24670   | 25720.5 | 20331.6 | 20793.1 | 20887.5 | 23659.6 | 17262.1 | 22011.3 | 15028   | 15507.3 | 20587.10       | 6.6           |
+| **observer**    | 24400.1 | 23171.7 | 20627.6 | 20092.9 | 20097.2 | 19972.5 | 20678.6 | 19803.1 | 22566.5 | 20948.5 | 21235.87       | 6.5           |
+| **싱글톤**      | 24258.7 | 23246.4 | 24368.6 | 20532.7 | 19179.2 | 20635.9 | 22827.9 | 19826   | 19292.4 | 21353.3 | 21552.11       | 6.5           |
+| **pub-sub**     | 27682.8 | 22114.4 | 13298.6 | 17408.6 | 16221.8 | 11846   | 15549   | 14294   | 15491.8 | 12438.8 | 16634.58       | 6.8           |
+| **context-api** | 24674.2 | 26069.6 | 19939   | 20608.3 | 20781.6 | 20599.2 | 21134.9 | 20253.6 | 19951.4 | 20438   | 21444.98       | 6.5           |
+| **zustand**     | 24343.3 | 23011.2 | 20945.1 | 19799.9 | 19812.4 | 20117   | 20206.8 | 19388.7 | 19465   | 23358.8 | 21044.82       | 6.5           |
+| **render**      | 24064.7 | 20229   | 17441.4 | 14481.5 | 13155.9 | 11610.4 | 12796.3 | 13622.2 | 17460.7 | 16489.2 | 16135.13       | 6.0           |
