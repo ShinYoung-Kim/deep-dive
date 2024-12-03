@@ -4,15 +4,18 @@ closure, context-api, module, observer, pub-sub, render, singleton, zustand 방�
 
 ## How To
 
-```bash
-// 의존성 설치
+```properties
+# 의존성 설치
 pnpm install
 
-// 테스트 실행
+# 페이지 실행
+pnpm run dev
+
+# 성능 측정 테스트 실행
 pnpm run test
 
-// 페이지 실행
-pnpm run dev
+# bundle size 비교
+pnpm run build
 ```
 
 ## Benchmark
@@ -29,3 +32,16 @@ pnpm run dev
 | **context-api** | 24674.2 | 26069.6 | 19939   | 20608.3 | 20781.6 | 20599.2 | 21134.9 | 20253.6 | 19951.4 | 20438   | 21444.98       | 6.5           |
 | **zustand**     | 24343.3 | 23011.2 | 20945.1 | 19799.9 | 19812.4 | 20117   | 20206.8 | 19388.7 | 19465   | 23358.8 | 21044.82       | 6.5           |
 | **render**      | 24064.7 | 20229   | 17441.4 | 14481.5 | 13155.9 | 11610.4 | 12796.3 | 13622.2 | 17460.7 | 16489.2 | 16135.13       | 6.0           |
+
+## Bundle Size
+
+| 방식            | Rendered Size | Gzip Size | Brotli Size |
+| --------------- | ------------- | --------- | ----------- |
+| **closure**     | 1.77KB        | 1011B     | 885B        |
+| **module**      | 1.5KB         | 895B      | 766B        |
+| **observer**    | 1.59KB        | 991B      | 846B        |
+| **싱글톤**      | 1.88KB        | 966B      | 833B        |
+| **pub-sub**     | 1.86KB        | 1.02KB    | 875B        |
+| **context-api** | 1.35KB        | 993B      | 832B        |
+| **zustand**     | 1022B         | 712B      | 625B        |
+| **render**      | 992B          | 655B      | 516B        |
