@@ -13,7 +13,7 @@ const Toast = ({ message, id, removeToast }: ToastProps) => {
 		}, 3000);
 	}, []);
 
-	return <div id={`item-${count}`}>{message + id}</div>;
+	return <div id={`item-${count} ${id}`}>{message + id}</div>;
 };
 
 export default Toast;
