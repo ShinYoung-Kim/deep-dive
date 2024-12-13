@@ -15,7 +15,7 @@ const ToastContainer = () => {
 				setToastListState(getToastList());
 			});
 		};
-	}, [getToastList, toastListState]);
+	}, []);
 
 	return (
 		<div>
