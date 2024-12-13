@@ -12,7 +12,7 @@ const ToastContainer = () => {
 			eventChannel.unsubscribe("addToast");
 			eventChannel.unsubscribe("removeToast");
 		};
-	}, [addToast, removeToast]);
+	}, []);
 
 	const publishRemoveToast = (id: number) => {
 		eventChannel.publish("removeToast", id);
